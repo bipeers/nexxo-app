@@ -46,6 +46,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Routes
+app.get('/', (req, res) => {
+    res.status(200).json({ status: 'success', message: 'Welcome to Nexxo API' });
+});
+
 app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'success', message: 'Server is healthy' });
 });
@@ -73,6 +77,14 @@ app.post('/api/data',
         res.status(200).json({ status: 'success', received: data });
     }
 );
+
+// Catch-all route for undefined routes
+app.use((req, res, next) => {
+    res.status(404).json({
+        status: 'fail',
+        message: `Can't find ${req.originalUrl} on this server!`
+    });
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
