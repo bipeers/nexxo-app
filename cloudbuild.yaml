@@ -13,7 +13,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'nexxo-back'
+      - 'nexxo-app'
       - '--image'
       - 'gcr.io/nexxo-back/nexxo-back:$COMMIT_SHA'
       - '--region'
