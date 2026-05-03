@@ -21,6 +21,8 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
+      - '--project'
+      - 'nexxo-back'
 
 images:
   - 'gcr.io/$PROJECT_ID/nexxo-back:$COMMIT_SHA'
